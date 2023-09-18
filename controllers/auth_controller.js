@@ -9,18 +9,19 @@ export const signIn = async (req, res) => {
 };
 
 export const doSignIn = async (req, res) => {
-  const user = await User.findOne({ email: req.body.email });
-  if (user) {
-    if (user.password != req.body.password) {
-      res.redirect("back");
-    } else {
-      res.cookie("user_id", user._id);
-      res.redirect("/dashboard");
-    }
-  } else {
-    res.redirect("back");
-    return;
-  }
+  res.redirect("/dashboard");
+  // const user = await User.findOne({ email: req.body.email });
+  // if (user) {
+  //   if (user.password != req.body.password) {
+  //     res.redirect("back");
+  //   } else {
+  //     res.cookie("user_id", user._id);
+  //     res.redirect("/dashboard");
+  //   }
+  // } else {
+  //   res.redirect("back");
+  //   return;
+  // }
 };
 
 export const signUp = async (req, res) => {

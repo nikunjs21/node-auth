@@ -23,10 +23,10 @@ export const home = async (req, res) => {
 };
 
 export const hello = async (req, res) => {
-  if (req.cookies && !req.cookies["user_id"]) {
-    res.redirect("/signin");
-    return;
-  }
+  // if (req.cookies && !req.cookies["user_id"]) {
+  //   res.redirect("/signin");
+  //   return;
+  // }
   // const blog = new Blog({
   //   title: "new 1",
   //   author: "abc",

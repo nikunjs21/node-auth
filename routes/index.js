@@ -1,4 +1,5 @@
 import { Router } from "express";
+import passport from "passport";
 
 import { home, hello } from "../controllers/home_controller.js";
 import AuthController from "../controllers/auth_controller.js";
@@ -8,7 +9,13 @@ router.get("/", home);
 router.get("/dashboard", hello);
 
 router.get("/signin", AuthController.signIn);
-router.post("/dosignin", AuthController.doSignIn);
+router.post(
+  "/dosignin",
+  passport.authenticate("local", {
+    failureRedirect: "/signin",
+  }),
+  AuthController.doSignIn
+);
 router.get("/signup", AuthController.signUp);
 router.post("/dosignup", AuthController.doSignUp);
 
