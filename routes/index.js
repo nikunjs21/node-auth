@@ -18,5 +18,6 @@ router.post(
 );
 router.get("/signup", AuthController.signUp);
 router.post("/dosignup", AuthController.doSignUp);
+router.get("/signout", AuthController.signOut);
 
 export default router;

@@ -51,4 +51,11 @@ export const doSignUp = async (req, res) => {
   res.redirect("/signin");
 };
 
-export default { signIn, signUp, doSignIn, doSignUp };
+export const signOut = (req, res) => {
+  req.logout(() => {
+    console.log("logging out");
+  });
+  return res.redirect("/signin");
+};
+
+export default { signIn, signUp, doSignIn, doSignUp, signOut };
