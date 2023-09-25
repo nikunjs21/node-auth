@@ -49,7 +49,10 @@ export const hello = async (req, res) => {
   // });
 
   // await blog.save();
-  res.send("Hello");
+  // res.send("Hello");
+  res.render("home", {
+    title: "Home",
+  });
 };
 
 export default { home, hello };

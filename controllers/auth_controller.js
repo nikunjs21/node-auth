@@ -1,10 +1,14 @@
 import User from "../models/user.js";
 
 export const signIn = async (req, res) => {
-  if (req.cookies && req.cookies["user_id"]) {
+  if (req.isAuthenticated()) {
     res.redirect("/dashboard");
     return;
   }
+  // if (req.cookies && req.cookies["user_id"]) {
+  //   res.redirect("/dashboard");
+  //   return;
+  // }
   res.render("signin", { layout: "signin", title: "Sign In" });
 };
 
@@ -25,6 +29,10 @@ export const doSignIn = async (req, res) => {
 };
 
 export const signUp = async (req, res) => {
+  if (req.isAuthenticated()) {
+    res.redirect("/dashboard");
+    return;
+  }
   res.render("signup", { layout: "signup", title: "Sign Up" });
 };
 

@@ -6,7 +6,7 @@ import AuthController from "../controllers/auth_controller.js";
 
 const router = Router();
 router.get("/", home);
-router.get("/dashboard", hello);
+router.get("/dashboard", passport.checkAuthentication, hello);
 
 router.get("/signin", AuthController.signIn);
 router.post(
